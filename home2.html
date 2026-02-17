@@ -1,0 +1,2117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Compass Realty | Luxury Properties & Premium Homes</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --primary-white: #ffffff;
+      --primary-pink: #d27fa6;
+      --primary-orange: black;
+      --text-dark: #1a1a1a;
+      --text-light: #666666;
+      --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      --shadow-lg: 0 15px 40px rgba(0, 0, 0, 0.12);
+      --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      --border-radius: 16px;
+    }
+
+    .dark-mode {
+      --primary-white: #0a0a0a;
+      --primary-pink: #d27fa6;
+      --primary-orange: white;
+      --text-dark: #f0f0f0;
+      --text-light: #a0a0a0;
+      --shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+      --shadow-lg: 0 15px 40px rgba(0, 0, 0, 0.35);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+            font-family:Arial, Helvetica, sans-serif;
+      font-weight: 400;
+      color: var(--text-dark);
+      background-color: var(--primary-white);
+      line-height: 1.7;
+      transition: var(--transition);
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+
+    /* FIXED: Font sizes as requested */
+    h1 {
+      font-size: 42px;
+      /* margin-bottom: 20px; */
+    }
+
+    h2 {
+      font-size: 36px;
+      /* margin-bottom: 15px; */
+      position: relative;
+      display: inline-block;
+    }
+
+    h3 {
+      font-size: 28px;
+      margin-bottom: 12px;
+    }
+
+    h4 {
+      font-size: 23px;
+      margin-bottom: 10px;
+    }
+
+    h5,
+    h6 {
+      font-size: 21px;
+      margin-bottom: 8px;
+    }
+
+    /* All other text elements - FIXED: Only 17px */
+    p,
+    span,
+    li,
+    a,
+    button,
+    .dropdown-item,
+    .nav-link,
+    .btn,
+    .stat-label,
+    .section-subtitle,
+    .property-location,
+    .feature span,
+    .testimonial-content,
+    .footer-description,
+    .footer-links a,
+    .copyright,
+    .client-details span,
+    .property-count,
+    .banner-content p,
+    .section-header p,
+    .property-type-card p,
+    .service-card p,
+    .ready-section p,
+    .banner-image-badge,
+    .property-badge {
+      font-size: 17px !important;
+      font-weight: 400;
+    }
+
+    /* Special cases that should be 17px */
+    .navbar-brand .compass {
+      font-size: 23px !important;
+      line-height: 1;
+    }
+
+    .navbar-brand .housing {
+      font-size: 17px !important;
+      line-height: 1;
+      opacity: 0.9;
+    }
+
+    .stat-number {
+      font-size: 36px !important;
+      color: var(--primary-pink);
+      display: block;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .property-price {
+      font-size: 28px !important;
+      color: var(--primary-pink);
+      margin-bottom: 15px;
+    }
+
+    .logo-text .compass {
+      font-size: 23px !important;
+      line-height: 1;
+    }
+
+    .logo-text .housing {
+      font-size: 17px !important;
+      line-height: 1;
+    }
+
+    .sidebar-logo .compass {
+      font-size: 21px !important;
+    }
+
+    .sidebar-logo .housing {
+      font-size: 17px !important;
+    }
+
+    .bg-logo-pattern {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image:
+        radial-gradient(circle at 20% 80%, rgba(240, 117, 174, 0.03) 0%, transparent 20%),
+        radial-gradient(circle at 80% 20%, rgba(255, 107, 53, 0.03) 0%, transparent 20%);
+      background-size: cover;
+      z-index: -2;
+      pointer-events: none;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      margin: auto;
+      background-image: url("Images/transparent-logo-1.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 600px auto;
+      opacity: 0.10;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+
+    .dark-mode::before {
+      background-image: url("Images/transparent-logo-1.png");
+      opacity: 0.05;
+    }
+
+    header,
+    footer {
+      background: linear-gradient(135deg, #d27fa6, #d27fa6);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      transition: var(--transition);
+    }
+
+    .dark-mode header,
+    .dark-mode footer {
+      background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+    }
+
+    /* FIXED: Navbar layout - Logo left, Menu center, Actions right */
+    .navbar {
+      padding: 10px 0;
+    }
+
+    .navbar-brand {
+      font-weight: 500;
+      color: white !important;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 8px 0;
+      line-height: 1.2;
+      margin-right: 0;
+    }
+
+    .navbar-brand img {
+      width: 50px;
+      height: 50px;
+      object-fit: contain;
+      display: block;
+    }
+
+    .navbar-brand .logo-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Center navigation items */
+    .navbar-nav {
+      display: flex;
+      /* align-items: center; */
+    }
+
+    .nav-link {
+      color: white !important;
+      padding: 12px 20px !important;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .nav-link:before {
+      content: '';
+      position: absolute;
+      bottom: 8px;
+      left: 20px;
+      width: 0;
+      height: 2px;
+      background: white;
+      transition: var(--transition);
+      border-radius: 2px;
+    }
+
+    .nav-link:hover:before {
+      width: calc(100% - 40px);
+    }
+
+    .nav-link:hover {
+      color: white !important;
+      opacity: 0.9;
+    }
+
+    /* Right side actions - Register and Dark Mode */
+    .navbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-left: auto;
+    }
+
+    /* Dark mode toggle */
+    .mode-toggle-wrapper {
+      display: flex;
+      align-items: center;
+    }
+
+    .mode-toggle {
+      width: 50px;
+      height: 28px;
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 50px;
+      position: relative;
+      cursor: pointer;
+      border: 2px solid rgba(255, 255, 255, 0.5);
+      transition: var(--transition);
+      flex-shrink: 0;
+    }
+
+    .dark-mode .mode-toggle {
+      background: rgba(0, 0, 0, 0.3);
+      border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .mode-toggle:after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: white;
+      border-radius: 50%;
+      top: 2px;
+      left: 2px;
+      transition: var(--transition);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .dark-mode .mode-toggle:after {
+      left: 24px;
+    }
+
+    .mode-toggle i {
+      position: absolute;
+      top: 6px;
+      font-size: 12px;
+      z-index: 1;
+      color: white;
+    }
+
+    .mode-toggle .fa-sun {
+      left: 6px;
+    }
+
+    .mode-toggle .fa-moon {
+      right: 6px;
+    }
+
+    .btn-register {
+      border: 1px solid white;
+      color: white;
+      padding: 10px 24px;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+    }
+/* Fix first column text alignment */
+footer .col-lg-4:first-child {
+    flex: 1.2 1 0;
+    display: flex;
+    flex-direction: column;
+}
+
+footer .col-lg-4:first-child .footer-links {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+footer .col-lg-4:first-child .footer-description {
+    margin-bottom: 20px;
+    flex-shrink: 0;
+}
+
+footer .col-lg-4:first-child .social-icons {
+    margin-top: 0;
+    padding-top: 10px;
+    flex-shrink: 0;
+}
+
+/* Ensure all columns have same starting point */
+footer .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+footer .col-lg-4,
+footer .col-lg-2,
+footer .col-lg-3,
+footer .col-md-4 {
+    flex: 1 1 0;
+    min-width: 200px;
+    padding-right: 20px;
+    padding-left: 20px;
+    align-self: flex-start;
+}
+
+/* Reset any margins pushing content down */
+.footer-links h4 {
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+.footer-links ul {
+    margin-top: 0;
+}
+
+    /* Navbar toggler */
+    .navbar-toggler {
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 6px 10px;
+      border-radius: 8px;
+      order: 3;
+      margin-left: 15px;
+    }
+
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 0.9)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+      width: 1.2em;
+      height: 1.2em;
+    }
+
+    /* Mobile responsive */
+    @media (max-width: 991px) {
+      .navbar-actions {
+        order: 2;
+        margin-left: auto;
+        margin-right: 15px;
+      }
+
+      .navbar-toggler {
+        order: 3;
+      }
+
+      .navbar-collapse {
+        background: linear-gradient(135deg, #d27fa6, #d27fa6);
+        padding: 20px;
+        border-radius: 12px;
+        margin-top: 15px;
+        box-shadow: var(--shadow-lg);
+      }
+
+      .dark-mode .navbar-collapse {
+        background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+      }
+
+
+
+      .nav-link:before {
+        display: none;
+      }
+
+      .dropdown-menu {
+        background: rgba(255, 255, 255, 0.1);
+        border: none;
+        margin: 10px auto;
+        width: 80%;
+      }
+    }
+
+    /* Dropdown styling */
+    .dropdown-menu {
+      background: var(--primary-white);
+      border: none;
+      border-radius: 12px;
+      box-shadow: var(--shadow-lg);
+      padding: 15px 0;
+      min-width: 200px;
+      border: 1px solid rgba(240, 117, 174, 0.1);
+    }
+
+    .dropdown-item {
+      color: var(--text-dark);
+      padding: 12px 25px;
+      transition: var(--transition);
+    }
+
+    .dropdown-item:hover {
+      background: rgba(240, 117, 174, 0.1);
+      color: var(--primary-pink);
+    }
+
+    .dark-mode .dropdown-menu {
+      background: #1a1a1a;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+
+    /* Footer - FIXED: All footer headings use h4 */
+    footer {
+      padding: 60px 0 25px;
+      margin-top: 30px;
+    }
+
+    .footer-logo {
+      color: white;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 23px;
+      /* h4 size */
+    }
+
+    .footer-description {
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 25px;
+    }
+
+    /* FIXED: All footer headings use h4 */
+    .footer-links h4 {
+      color: white;
+      margin-bottom: 20px;
+      position: relative;
+      padding-bottom: 15px;
+      font-size: 23px;
+      /* h4 size */
+    }
+
+    .footer-links h4:after {
+      content: '';
+      position: absolute;
+      width: 40px;
+      height: 2px;
+      background: white;
+      bottom: 0;
+      left: 0;
+    }
+
+    .footer-links ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-links li {
+      margin-bottom: 12px;
+     
+    }
+
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.85);
+      text-decoration: none;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+
+    .social-icons {
+      display: flex;
+      gap: 15px;
+      margin-top: 25px;
+    }
+
+    .social-icons a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+      border-radius: 50%;
+      transition: var(--transition);
+      text-decoration: none;
+    }
+
+    .social-icons a:hover {
+      background: white;
+      color: var(--primary-pink);
+      transform: translateY(-5px);
+    }
+
+    .copyright {
+      text-align: center;
+      padding-top: 30px;
+      margin-top: 40px;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-in {
+      opacity: 0;
+      animation: fadeInUp 0.8s ease forwards;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1200px) {
+
+      .property-types-grid,
+      .properties-masonry,
+      .services-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .container {
+        max-width: 960px;
+      }
+
+      .banner-split {
+        flex-direction: column;
+        gap: 50px;
+      }
+
+      .banner-content {
+        padding-right: 0;
+        text-align: center;
+      }
+
+      .banner-image {
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .property-types-grid,
+      .properties-masonry,
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        max-width: 720px;
+      }
+
+      .property-types-grid,
+      .properties-masonry,
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .banner-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .btn-primary,
+      .btn-secondary {
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+      }
+
+      .testimonial-card {
+        min-width: 300px;
+      }
+
+      .banner-stats {
+        justify-content: space-around;
+      }
+
+      .banner-image {
+        height: 450px;
+      }
+
+      .stat-number {
+        font-size: 32px;
+      }
+
+      .navbar-brand {
+        font-size: 17px;
+      }
+
+      .navbar-brand img {
+        width: 40px;
+        height: 40px;
+      }
+
+      .navbar-brand .logo-text .compass {
+        font-size: 21px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .container {
+        padding: 0 20px;
+      }
+
+      .section-container {
+        padding: 50px 0;
+        margin-bottom: 30px;
+      }
+
+      .property-type-card,
+      .service-card,
+      .property-card,
+      .testimonial-card {
+        padding: 25px 20px;
+      }
+
+      .footer-links {
+        margin-bottom: 30px;
+      }
+
+      .ready-section {
+        padding: 50px 20px;
+      }
+
+      .banner-image {
+        height: 350px;
+      }
+
+      .banner-image-badge {
+        top: 20px;
+        right: 20px;
+        padding: 10px 20px;
+      }
+
+      .navbar-brand {
+        font-size: 17px;
+      }
+
+      .navbar-brand img {
+        width: 35px;
+        height: 35px;
+      }
+    }
+
+    @media (max-width: 412px) {
+      .testimonial-card {
+        min-width: 280px;
+        padding: 25px 20px;
+      }
+
+      .stat-item {
+        min-width: 100px;
+      }
+
+      .banner-image {
+        height: 300px;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .stat-number {
+        font-size: 28px;
+      }
+
+      .banner-stats {
+        gap: 20px;
+      }
+
+      .btn-primary,
+      .btn-secondary {
+        padding: 15px 30px;
+      }
+
+      .banner-image {
+        height: 250px;
+      }
+    }
+
+    /* Mobile Sidebar Modal */
+    .mobile-sidebar {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 85%;
+      max-width: 350px;
+      height: 100vh;
+      background: linear-gradient(135deg, #d27fa6, #d27fa6);
+      z-index: 2000;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      padding: 20px;
+      overflow-y: auto;
+      box-shadow: -5px 0 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .dark-mode .mobile-sidebar {
+      background: linear-gradient(135deg, #1a1a1a, #0a0a0a);
+    }
+
+    .mobile-sidebar.active {
+      right: 0;
+    }
+
+    .sidebar-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .sidebar-logo {
+      color: white;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 21px;
+    }
+
+    .sidebar-logo img {
+      width: 40px;
+      height: 40px;
+    }
+
+    .close-sidebar {
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+      padding: 5px;
+      transition: all 0.3s;
+      font-size: 21px;
+    }
+
+    .close-sidebar:hover {
+      transform: rotate(90deg);
+    }
+
+    .mobile-nav {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .mobile-nav .nav-item {
+      margin-bottom: 10px;
+    }
+
+    .mobile-nav .nav-link {
+      color: white;
+      padding: 15px 20px;
+      display: block;
+      border-radius: 10px;
+      transition: all 0.3s;
+      text-decoration: none;
+    }
+
+    .mobile-nav .nav-link:hover {
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    .sidebar-actions {
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .mobile-mode-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: white;
+      padding: 15px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      margin-bottom: 15px;
+      cursor: pointer;
+      border: none;
+      width: 100%;
+    }
+
+    .mobile-mode-toggle span {
+      font-size: 17px;
+    }
+
+    .mobile-register-btn {
+      display: block;
+      width: 100%;
+      padding: 15px;
+      background: var(--primary-orange);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      text-align: center;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+
+    .mobile-register-btn:hover {
+      background: #ff5a1f;
+      transform: translateY(-3px);
+    }
+
+    .sidebar-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1999;
+      display: none;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .sidebar-overlay.active {
+      display: block;
+      opacity: 1;
+    }
+
+    /* FIXED: Desktop layout */
+    @media (min-width: 992px) {
+      .navbar-collapse {
+        display: flex !important;
+        flex-basis: auto !important;
+        flex-grow: 1 !important;
+      }
+
+      .navbar-nav {
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+      }
+
+      .navbar-actions {
+        margin-left: 0;
+      }
+
+      .navbar-toggler {
+        display: none;
+      }
+    }
+
+    /* Mobile menu button */
+    .navbar-toggler {
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 8px 12px;
+      border-radius: 8px;
+      color: white;
+      margin-left: auto;
+      order: 2;
+      font-size: 17px;
+    }
+
+    /* FIXED: Desktop navbar layout */
+    .navbar>.container {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .navbar-brand {
+      margin-right: 0;
+    }
+
+    /* FIXED: Mobile responsive */
+    @media (max-width: 991px) {
+      .navbar-actions.d-lg-flex {
+        display: none !important;
+      }
+
+      .navbar-toggler {
+        order: 2;
+        margin-left: auto;
+      }
+
+      .navbar-brand {
+        order: 1;
+        margin-right: auto;
+      }
+    }
+
+    /* Mobile Register Button Styling */
+    @media (max-width: 991px) {
+      .btn-register.d-lg-none {
+        display: flex !important;
+        align-items: center;
+        order: 2;
+        margin-left: auto;
+      }
+
+      .navbar-toggler.d-lg-none {
+        order: 3;
+        margin-left: 0;
+      }
+
+      .navbar-brand {
+        order: 1;
+        margin-right: auto;
+      }
+    }
+
+    .hero-section {
+      position: relative;
+      width: 100%;
+      /* min-height: 100vh; */
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Background image styling */
+    .background-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      z-index: 1;
+    }
+
+    /* Overlay to improve text readability */
+    .background-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 2;
+    }
+
+    /* Text content styling */
+    .content-container {
+      position: relative;
+      z-index: 3;
+      max-width: 1200px;
+      padding: 2rem;
+      text-align: center;
+      /* color: white; */
+      /* background-color: white; */
+    }
+
+
+    .content-container h2 {
+      font-size: 36px;
+      margin-bottom: 1.5rem;
+      font-weight: 400;
+      color: var(--primary-orange);
+      /* text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7); */
+    }
+
+    .content-container p {
+      font-size: 17px;
+      max-width: 800px;
+      margin: 0 auto 2rem;
+      line-height: 1.8;
+    }
+
+    .cta-button {
+    background-color: var(--primary-pink);
+    color: var(--primary-white);
+    border: 1px solid var(--primary-white);
+    padding: 10px 40px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    }
+
+    .cta-button:hover {
+      background: var(--primary-white);
+      color: var(--primary-pink);
+      border: 1px solid var(--primary-pink);
+    }
+
+
+
+    /* Features section (optional) */
+    .features {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+      gap: 2rem;
+    }
+
+    .feature {
+      flex: 1;
+      min-width: 200px;
+      max-width: 300px;
+      padding: 1.5rem;
+      /* background: rgba(255, 255, 255, 0.1); */
+      border-radius: 10px;
+      backdrop-filter: blur(5px);
+    }
+
+    .feature i {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color:var(--primary-pink);
+    }
+
+    .feature h5 {
+      font-size: 21px;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Scroll indicator (optional) */
+    .scroll-indicator {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
+      color: white;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+
+      0%,
+      20%,
+      50%,
+      80%,
+      100% {
+        transform: translateY(0) translateX(-50%);
+      }
+
+      40% {
+        transform: translateY(-10px) translateX(-50%);
+      }
+
+      60% {
+        transform: translateY(-5px) translateX(-50%);
+      }
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .content-container h1 {
+        font-size: 2.5rem;
+      }
+
+      .content-container h2 {
+        font-size: 1.5rem;
+      }
+
+      .content-container p {
+        font-size: 17px;
+      }
+
+      .features {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .feature {
+        width: 100%;
+        max-width: 100%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .content-container h1 {
+        font-size: 2rem;
+      }
+
+      .content-container h2 {
+        font-size: 1.3rem;
+      }
+
+      .content-container p {
+        font-size: 1rem;
+      }
+    }
+
+ 
+
+    .section-header {
+      text-align: center;
+      /* margin-bottom: 60px; */
+    }
+
+    .section-title {
+      font-size: 42;
+      color: #1a1a1a;
+      /* margin-bottom: 15px; */
+      color: var(--primary-orange);
+      /* font-weight: 700; */
+    }
+
+    .section-subtitle {
+      font-size: 17px;
+      color: #666;
+      margin-bottom: 25px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .section-divider {
+      height: 4px;
+      width: 80px;
+      background-color: #2a9d8f;
+      margin: 0 auto;
+      border-radius: 2px;
+    }
+
+    .apartments-container {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .apartment-card {
+      background-color: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .apartment-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+    }
+
+    .apartment-image {
+      position: relative;
+      height: 220px;
+      overflow: hidden;
+    }
+
+    .apartment-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .apartment-card:hover .apartment-image img {
+      transform: scale(1.05);
+    }
+
+    .apartment-status {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      background-color: var(--primary-pink);
+      color: white;
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .apartment-status.sold {
+      background-color: #e76f51;
+    }
+
+    .apartment-status.reserved {
+      background-color: #f4a261;
+    }
+
+    .apartment-price {
+      position: absolute;
+      bottom: 15px;
+      left: 15px;
+      background-color: rgba(0, 0, 0, 0.7);
+      color: white;
+      padding: 8px 15px;
+      border-radius: 5px;
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+
+    .apartment-details {
+      padding: 25px;
+    }
+
+    .apartment-name {
+      font-size: 21px;
+      color: #1a1a1a;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    .apartment-location {
+      color: #666;
+      font-size: 0.95rem;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+    }
+
+    .apartment-location i {
+      margin-right: 8px;
+      color: var(--primary-pink);
+    }
+
+    .apartment-features {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 15px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .apartment-features span {
+      display: flex;
+      align-items: center;
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    .apartment-features i {
+      margin-right: 5px;
+      color: #2a9d8f;
+    }
+
+    .apartment-description {
+      color: #666;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      margin-bottom: 20px;
+      /* height: 70px; */
+      overflow: hidden;
+    }
+
+    .view-details-btn {
+     background-color: var(--primary-pink);
+    color: var(--primary-white);
+    border: 1px solid var(--primary-white);
+    padding: 10px 40px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    }
+
+
+    .view-details-btn:hover {
+      background: var(--primary-white);
+      color: var(--primary-pink);
+      border: 1px solid var(--primary-pink);
+    }
+
+    .section-footer {
+      text-align: center;
+      /* margin-top: 60px; */
+    }
+
+    .view-all-btn {
+      background: var(--primary-pink);
+      color: var(--primary-white);
+      border: 1px solid var(--primary-pink);
+      padding: 10px 40px;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .view-all-btn:hover {
+      background: var(--primary-white);
+      color: var(--primary-pink);
+      border: 1px solid var(--primary-pink);
+    }
+
+    .view-all-btn i {
+      margin-left: 8px;
+      transition: transform 0.3s ease;
+    }
+
+    .view-all-btn:hover i {
+      transform: translateX(5px);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1200px) {
+      .apartments-container {
+        grid-template-columns: repeat(3, 1fr);
+        max-width: 1100px;
+      }
+    }
+
+    @media (max-width: 992px) {
+      .apartments-container {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 800px;
+      }
+
+      .section-title {
+        font-size: 2.4rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .apartments-container {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .apartments-section {
+        padding: 60px 15px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .apartment-features {
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .section-title {
+        font-size: 1.8rem;
+      }
+
+      .apartment-description {
+        height: auto;
+      }
+    }
+
+    /* ===============================
+   DARK MODE – BODY & CONTENT FIX
+   =============================== */
+
+    /* Body background */
+    .dark-mode body {
+      background-color: #000000;
+      color: #ffffff;
+    }
+
+    /* Sections that were forced white */
+
+    /* .dark-mode .apartments-section, */
+    .dark-mode .apartment-card,
+    .dark-mode footer,
+    .dark-mode header,
+    .dark-mode .navbar-collapse,
+    .dark-mode .mobile-sidebar {
+      background-color: #000000 !important;
+    }
+
+    /* Cards slightly lifted for contrast (professional look) */
+    .dark-mode .apartment-card {
+      background-color: #0f0f0f !important;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    /* Text colors */
+    .dark-mode h1,
+    .dark-mode h2,
+    .dark-mode h3,
+    .dark-mode h4,
+    .dark-mode h5,
+    .dark-mode h6,
+    .dark-mode p,
+    .dark-mode span,
+    .dark-mode li,
+    .dark-mode a {
+      color: #ffffff;
+    }
+
+    /* Secondary text */
+    .dark-mode .section-subtitle,
+    .dark-mode .apartment-description,
+    .dark-mode .apartment-location {
+      color: #b5b5b5;
+    }
+
+    /* Buttons stay brand-colored */
+    .dark-mode .cta-button,
+    .dark-mode .view-details-btn,
+    .dark-mode .btn-register {
+      color: #ffffff;
+    }
+
+    /* Footer links */
+    .dark-mode .footer-links a {
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .dark-mode .footer-links a:hover {
+      color: #ffffff;
+    }
+
+    /* Shadows toned for dark UI */
+    .dark-mode .apartment-card {
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.9);
+    }
+    .section-styles{
+      padding: 30px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="bg-logo-pattern"></div>
+
+  <header>
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <!-- Logo left -->
+        <a class="navbar-brand" href="index.html">
+          <img src="Images/colored-logo[1].png" alt="Compass Realty Logo">
+          <div class="logo-text">
+            <span class="compass">Compass</span>
+            <span class="housing" style="margin-top:8px;">Housing Society</span>
+          </div>
+        </a>
+
+        <!-- Mobile Register Button -->
+        <a href="register.html" class="btn-register d-lg-none" style="margin-right: 15px; padding: 8px 18px;">
+          <i class="fas fa-user-plus"></i>
+          Register
+        </a>
+
+        <!-- Mobile menu button -->
+        <button class="navbar-toggler d-lg-none" type="button" id="mobileMenuBtn">
+          <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- Desktop menu (hidden on mobile) -->
+        <div class="collapse navbar-collapse d-none d-lg-block" id="navbarNav">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item dropdown home-dropdown active">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Home
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="index.html">Home 1</a></li>
+                <li><a class="dropdown-item" href="home2.html">Home 2</a></li>
+
+              </ul>
+            </li>
+
+            <li class="nav-item dropdown services-dropdown">
+              <a class="nav-link dropdown-toggle" href="services.html" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Services
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="services.html">Service Page</a></li>
+                <li><a class="dropdown-item" href="servicedetails.html">Service Details</a></li>
+
+              </ul>
+            </li>
+            <li class="nav-item dropdown blog-dropdown">
+              <a class="nav-link dropdown-toggle" href="blog.html" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Blog
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="blog.html">Blog Page</a></li>
+                <li><a class="dropdown-item" href="blogdetails.html">Blog Details</a></li>
+                <li><a class="dropdown-item" href="comingsoonpage.html">Coming Soon</a></li>
+
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+          </ul>
+        </div>
+        <div class="navbar-actions d-none d-lg-flex">
+          <button class="mode-toggle" id="modeToggleDesktop">
+            <i class="fas fa-sun"></i>
+            <i class="fas fa-moon"></i>
+          </button>
+          <a href="register.html" class="btn-register">
+            <i class="fas fa-user-plus"></i>
+            Register
+          </a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Mobile Sidebar Modal -->
+  <div class="mobile-sidebar" id="mobileSidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-logo">
+        <img src="images/colored-logo[1].png" alt="Compass Realty Logo">
+        <div>
+          <div class="compass">Compass</div>
+          <div class="housing">Housing Society</div>
+        </div>
+      </div>
+      <button class="close-sidebar" id="closeSidebar">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+
+    <ul class="navbar-nav mx-auto">
+      <li class="nav-item dropdown home-dropdown active">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Home
+        </a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="index.html">Home 1</a></li>
+          <li><a class="dropdown-item" href="home2.html">Home 2</a></li>
+
+        </ul>
+      </li>
+
+      <li class="nav-item dropdown services-dropdown">
+        <a class="nav-link dropdown-toggle" href="services.html" role="button" data-bs-toggle="dropdown"
+          aria-expanded="false">
+          Services
+        </a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="services.html">Service Page</a></li>
+          <li><a class="dropdown-item" href="servicedetails.html">Service Details</a></li>
+
+        </ul>
+      </li>
+      <li class="nav-item dropdown blog-dropdown">
+        <a class="nav-link dropdown-toggle" href="blog.html" role="button" data-bs-toggle="dropdown"
+          aria-expanded="false">
+          Blog
+        </a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="blog.html">Blog Page</a></li>
+          <li><a class="dropdown-item" href="blogdetails.html">Blog Details</a></li>
+          <li><a class="dropdown-item" href="comingsoonpage.html">Coming Soon</a></li>
+
+        </ul>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="about.html">About</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="contact.html">Contact</a>
+      </li>
+    </ul>
+
+    <div class="sidebar-actions">
+      <button class="mobile-mode-toggle" id="modeToggleMobile">
+        <span>Dark Mode</span>
+        <div class="mode-toggle">
+          <i class="fas fa-sun"></i>
+          <i class="fas fa-moon"></i>
+        </div>
+      </button>
+    </div>
+  </div>
+
+  <!-- Sidebar Overlay -->
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+
+  <section class="hero-section section-styles">
+   
+    <div class="content-container">
+      <h1>Discover Amazing Landscapes <br>
+        Experience the beauty of nature like never before</h1>
+
+      <p>Immerse yourself in breathtaking scenery from around the world. Our curated collection of natural wonders will
+        inspire your next adventure and awaken your sense of wonder.</p>
+
+      <a href="services.html" class="cta-button">Explore Now</a>
+
+      <!-- Features section (optional) -->
+      <!-- <div class="features">
+        <div class="feature">
+          <i class="fas fa-mountain"></i>
+          <h5>Mountain Views</h5>
+          <p>Discover stunning mountain ranges and peaks from the globe.</p>
+        </div>
+        <div class="feature">
+          <i class="fas fa-water"></i>
+          <h5>Lakes & Rivers</h5>
+          <p>Explore serene lakes, flowing rivers, and majestic waterfalls.</p>
+        </div>
+        <div class="feature">
+          <i class="fas fa-tree"></i>
+          <h5>Forest Trails</h5>
+          <p>Walk through enchanted forests and discover hidden gems.</p>
+        </div>
+      </div> -->
+    </div>
+
+    <!-- Scroll indicator (optional) -->
+    <div class="scroll-indicator">
+      <i class="fas fa-chevron-down"></i>
+    </div>
+  </section>
+
+  <section class="apartments-section section-styles">
+    <div class="container-fluid" style="padding-left:30px; padding-right:30px;">
+
+    <div class="section-header">
+      <h2 class="section-title">Premium Apartments</h2>
+      <p class="section-subtitle">Discover luxury living in our exclusive properties</p>
+      <!-- <div class="section-divider"></div> -->
+    </div>
+
+    <div class="apartments-container">
+      <!-- Apartment 1 -->
+      <div class="apartment-card">
+        <div class="apartment-image">
+          <img
+            src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+            alt="Modern Luxury Apartment">
+          <span class="apartment-price">$450,000</span>
+        </div>
+        <div class="apartment-details">
+          <h5 class="apartment-name">Skyline Residences</h5>
+          <p class="apartment-location"><i class="fas fa-map-marker-alt"></i> Downtown, New York</p>
+
+<p class="apartment-description">Spacious modern apartment with city views and premium finishes</p>
+
+          <a href="services.html" class="view-details-btn">View Details</a>
+        </div>
+      </div>
+
+      <!-- Apartment 2 -->
+      <div class="apartment-card">
+        <div class="apartment-image">
+          <img
+            src="https://images.unsplash.com/photo-1518780664697-55e3ad937233?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+            alt="Penthouse View">
+          <span class="apartment-price">$890,000</span>
+        </div>
+        <div class="apartment-details">
+          <h5 class="apartment-name">Riverfront Penthouse</h5>
+          <p class="apartment-location"><i class="fas fa-map-marker-alt"></i> Riverside, Chicago</p>
+
+         <p class="apartment-description">Luxurious penthouse with terrace, river views and kitchen</p>
+
+          <a href="services.html" class="view-details-btn">View Details</a>
+        </div>
+      </div>
+
+      <!-- Apartment 3 -->
+      <div class="apartment-card">
+        <div class="apartment-image">
+          <img
+            src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+            alt="Modern Living Room">
+          <span class="apartment-price">$320,000</span>
+        </div>
+        <div class="apartment-details">
+          <h5 class="apartment-name">Urban Lofts</h5>
+          <p class="apartment-location"><i class="fas fa-map-marker-alt"></i> Arts District, LA</p>
+
+          <p class="apartment-description">Industrial-chic loft with exposed details, high ceilings, modern</p>
+
+          <a href="services.html" class="view-details-btn">View Details</a>
+        </div>
+      </div>
+
+      <!-- Apartment 4 -->
+      <div class="apartment-card">
+        <div class="apartment-image">
+          <img
+            src="https://images.unsplash.com/photo-1484101403633-562f891dc89a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+            alt="Luxury Kitchen">
+          <span class="apartment-price">$550,000</span>
+        </div>
+        <div class="apartment-details">
+          <h5 class="apartment-name">Garden Heights</h5>
+          <p class="apartment-location"><i class="fas fa-map-marker-alt"></i> Greenville, Miami</p>
+
+        <p class="apartment-description">Contemporary apartment with private garden and kitchen</p>
+
+          <a href="services.html" class="view-details-btn">View Details</a>
+        </div>
+      </div>
+
+      <!-- Apartment 5 -->
+      <div class="apartment-card">
+        <div class="apartment-image">
+          <img
+            src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+            alt="Minimalist Design">
+          <span class="apartment-price">$280,000</span>
+        </div>
+        <div class="apartment-details">
+          <h5 class="apartment-name">Minimalist Studio</h5>
+          <p class="apartment-location"><i class="fas fa-map-marker-alt"></i> Midtown, Atlanta</p>
+
+          <p class="apartment-description">Smart studio apartment with minimalist design.</p>
+          <a href="services.html" class="view-details-btn">View Details</a>
+        </div>
+      </div>
+
+      <!-- Apartment 6 -->
+      <div class="apartment-card">
+        <div class="apartment-image">
+          <img
+            src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+            alt="Luxury Bedroom">
+          <span class="apartment-price">$620,000</span>
+        </div>
+        <div class="apartment-details">
+          <h5 class="apartment-name">Executive Suites</h5>
+          <p class="apartment-location"><i class="fas fa-map-marker-alt"></i> Financial District, SF</p>
+
+          <p class="apartment-description">Executive apartment with home office premium.</p>
+          <a href="services.html" class="view-details-btn">View Details</a>
+        </div>
+      </div>
+
+      <!-- Apartment 7 -->
+      <div class="apartment-card">
+        <div class="apartment-image">
+          <img
+            src="https://images.unsplash.com/photo-1560185127-6ed189bf02f4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+            alt="Modern Bathroom">
+          <span class="apartment-price">$410,000</span>
+        </div>
+        <div class="apartment-details">
+          <h5 class="apartment-name">City View Apartments</h5>
+          <p class="apartment-location"><i class="fas fa-map-marker-alt"></i> Uptown, Dallas</p>
+
+          <p class="apartment-description">Modern apartment with floor-to-ceiling windows.</p>
+          <a href="services.html" class="view-details-btn">View Details</a>
+        </div>
+      </div>
+
+      <!-- Apartment 8 -->
+      <div class="apartment-card">
+        <div class="apartment-image">
+          <img
+            src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+            alt="Balcony View">
+          <span class="apartment-price">$380,000</span>
+        </div>
+        <div class="apartment-details">
+          <h5 class="apartment-name">Sunset Terraces</h5>
+          <p class="apartment-location"><i class="fas fa-map-marker-alt"></i> Westside, Phoenix</p>
+
+          <p class="apartment-description">Southwest-facing apartment with private.</p>
+          <a href="services.html" class="view-details-btn">View Details</a>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+
+    <div class="section-footer">
+      <a href="servicedetails.html" class="view-all-btn">View More<i class="fas fa-arrow-right"></i></a>
+    </div>
+
+  <footer id="contact">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 mb-5 mb-lg-0">
+          <div class="footer-links">
+
+            <h4>Compass Realty</h4>
+          </div>
+          <p class="footer-description">
+            Your trusted partner in luxury real estate. With decades of experience and a commitment to excellence, we
+            help you navigate the property market with confidence.
+          </p>
+         <div class="social-icons">
+            <a href="https://www.facebook.com/yourpage" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://twitter.com/yourusername" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/yourusername" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/yourusername" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-4 mb-5 mb-md-0">
+          <div class="footer-links">
+            <!-- FIXED: Changed h5 to h4 -->
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="home2.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+              <li><a href="about.html"><i class="fas fa-chevron-right"></i>About</a></li>
+              <li><a href="services.html"><i class="fas fa-chevron-right"></i> Services</a></li>
+              <li><a href="blog.html"><i class="fas fa-chevron-right"></i> Blog</a></li>
+              <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-4 mb-5 mb-md-0">
+          <div class="footer-links">
+            <!-- FIXED: Changed h5 to h4 -->
+            <h4>Property Types</h4>
+            <ul>
+              <li><a href="#"><i class="fas fa-home"></i> Luxury Villas</a></li>
+              <li><a href="#"><i class="fas fa-building"></i> Apartments</a></li>
+              <li><a href="#"><i class="fas fa-city"></i> Townhouses</a></li>
+              <li><a href="#"><i class="fas fa-water"></i> Waterfront Homes</a></li>
+              <li><a href="#"><i class="fas fa-mountain"></i> Country Estates</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-4">
+          <div class="footer-links">
+            <!-- FIXED: Changed h5 to h4 -->
+            <h4>Contact Info</h4>
+            <ul>
+              <li><a href="#"><i class="fas fa-map-marker-alt"></i> 1234 Luxury Avenue</a></li>
+              <li><a href="#"><i class="fas fa-phone"></i> (555) 123-4567</a></li>
+              <li><a href="#"><i class="fas fa-envelope"></i> info@compassrealty.com</a></li>
+              <li><a href="#"><i class="fas fa-clock"></i> Mon-Fri: 9am-7pm</a></li>
+              <li><a href="#"><i class="fas fa-clock"></i> Sat-Sun: 10am-4pm</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="copyright">
+        <p>&copy; 2023 Compass Realty. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // Function to set dark mode
+    function setDarkMode(isDark) {
+      const body = document.body;
+      if (isDark) {
+        body.classList.add('dark-mode');
+        localStorage.setItem('theme', 'dark');
+      } else {
+        body.classList.remove('dark-mode');
+        localStorage.setItem('theme', 'light');
+      }
+    }
+
+    // Initialize theme
+    const currentTheme = localStorage.getItem('theme') || 'light';
+    setDarkMode(currentTheme === 'dark');
+
+    // Handle dark mode toggle for desktop
+    const modeToggleDesktop = document.getElementById('modeToggleDesktop');
+    if (modeToggleDesktop) {
+      modeToggleDesktop.addEventListener('click', function () {
+        setDarkMode(!document.body.classList.contains('dark-mode'));
+      });
+    }
+
+    // Animation observer
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver(function (entries) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.animation = 'fadeInUp 0.8s ease forwards';
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-in').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Testimonial slider functionality
+    const testimonialSlider = document.querySelector('.testimonials-slider');
+    if (testimonialSlider) {
+      let isDown = false;
+      let startX;
+      let scrollLeft;
+
+      testimonialSlider.addEventListener('mousedown', (e) => {
+        isDown = true;
+        testimonialSlider.classList.add('active');
+        startX = e.pageX - testimonialSlider.offsetLeft;
+        scrollLeft = testimonialSlider.scrollLeft;
+      });
+
+      testimonialSlider.addEventListener('mouseleave', () => {
+        isDown = false;
+        testimonialSlider.classList.remove('active');
+      });
+
+      testimonialSlider.addEventListener('mouseup', () => {
+        isDown = false;
+        testimonialSlider.classList.remove('active');
+      });
+
+      testimonialSlider.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - testimonialSlider.offsetLeft;
+        const walk = (x - startX) * 2;
+        testimonialSlider.scrollLeft = scrollLeft - walk;
+      });
+    }
+
+    // Initial animation on load
+    window.addEventListener('load', function () {
+      document.querySelectorAll('.fade-in').forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom >= 0) {
+          el.style.animation = 'fadeInUp 0.8s ease forwards';
+        }
+      });
+    });
+
+    // Close mobile menu when clicking on a link
+    document.querySelectorAll('.navbar-nav .nav-link:not(.dropdown-toggle)').forEach(link => {
+      link.addEventListener('click', () => {
+        const navbarCollapse = document.getElementById('navbarNav');
+        if (navbarCollapse && navbarCollapse.classList.contains('show')) {
+          const bsCollapse = new bootstrap.Collapse(navbarCollapse);
+          bsCollapse.hide();
+        }
+      });
+    });
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    // Prevent dropdown menus from closing when clicking inside
+    document.querySelectorAll('.dropdown-menu').forEach(dropdown => {
+      dropdown.addEventListener('click', (e) => {
+        e.stopPropagation();
+      });
+    });
+
+    // Mobile Sidebar Functionality
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileSidebar = document.getElementById('mobileSidebar');
+    const closeSidebar = document.getElementById('closeSidebar');
+    const sidebarOverlay = document.getElementById('sidebarOverlay');
+
+    // Open sidebar
+    if (mobileMenuBtn) {
+      mobileMenuBtn.addEventListener('click', function () {
+        mobileSidebar.classList.add('active');
+        sidebarOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+    }
+
+    // Close sidebar
+    if (closeSidebar) {
+      closeSidebar.addEventListener('click', function () {
+        mobileSidebar.classList.remove('active');
+        sidebarOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    }
+
+    // Close sidebar when clicking overlay
+    if (sidebarOverlay) {
+      sidebarOverlay.addEventListener('click', function () {
+        mobileSidebar.classList.remove('active');
+        sidebarOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    }
+
+    // Close sidebar when clicking a link
+    document.querySelectorAll('.mobile-nav .nav-link').forEach(link => {
+      link.addEventListener('click', function () {
+        mobileSidebar.classList.remove('active');
+        sidebarOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    });
+
+    // Handle dark mode toggle in mobile sidebar
+    const modeToggleMobile = document.getElementById('modeToggleMobile');
+    if (modeToggleMobile) {
+      modeToggleMobile.addEventListener('click', function () {
+        setDarkMode(!document.body.classList.contains('dark-mode'));
+      });
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>404 | Coming Soon</title>
+
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Icons -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+
+<!-- Font -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --white:#ffffff;
+  --pink:#d27fa6;
+  --orange:#ff6b35;
+  --dark:#1a1a1a;
+  --gray:#666;
+  --transition:all .3s ease;
+}
+
+/* Dark Mode */
+.dark-mode{
+  --white:#0b0b0b;
+  --dark:#f2f2f2;
+  --gray:#aaa;
+}
+
+/* Base */
+body{
+  margin:0;
+  min-height:100vh;
+  font-family: 'Playfair Display', serif;
+  background:var(--white);
+  color:var(--dark);
+  transition:var(--transition);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow-x:hidden;
+}
+
+ body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      margin: auto;
+      background-image: url("Images/transparent-logo-1.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 600px auto;
+      opacity: 0.10;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+
+/* Typography */
+h1{font-size:42px}
+h2{font-size:36px}
+h3{font-size:28px}
+h4{font-size:23px}
+h5,h6{font-size:21px}
+p,span,a,button{font-size:17px}
+
+/* Section */
+.single-section{
+  padding:40px 0;
+  text-align:center;
+  animation:fadeUp .8s ease forwards;
+}
+
+/* Animation */
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:none}
+}
+
+/* Image */
+.error-img{
+  width:100%;
+  max-width:520px;
+  margin-bottom:24px;
+}
+
+/* Button */
+.btn-main{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  background:var(--pink);
+  color:#fff;
+  padding:14px 34px;
+  border-radius:50px;
+  text-decoration:none;
+  margin-top:20px;
+  transition:.3s ease;
+}
+.btn-main:hover{
+  transform:translateY(-2px);
+}
+
+/* Dark Toggle */
+.mode-toggle{
+  position:fixed;
+  top:20px;
+  right:20px;
+  background:var(--pink);
+  color:#fff;
+  border:none;
+  padding:8px 16px;
+  border-radius:30px;
+  font-size:14px;
+}
+
+/* Responsive */
+@media(max-width:768px){
+  h1{font-size:36px}
+  h2{font-size:32px}
+}
+@media(max-width:576px){
+  h1{font-size:32px}
+  h2{font-size:28px}
+}
+</style>
+</head>
+
+<body>
+
+
+<section class="single-section container">
+
+  <img src="https://blog.fluidui.com/assets/images/posts/imageedit_1_9273372713.png"
+       alt="404 Error" class="error-img">
+
+  <h3>Page Under Development</h3>
+  <p>We are preparing premium real-estate experiences for you.</p>
+
+  <a href="index.html" class="btn-main">
+    <i class="bi bi-arrow-left"></i>
+    <span>Back to Home</span>
+  </a>
+
+</section>
+
+<script>
+document.getElementById("modeToggle").onclick=()=>{
+  document.body.classList.toggle("dark-mode");
+};
+</script>
+
+</body>
+</html>
