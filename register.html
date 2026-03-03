@@ -1621,7 +1621,7 @@ footer .col-md-4 {
             }
             
             // If we have a complete valid email
-            if (/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.(com|in|org|net)$/i.test(emailVal)) {
+            if ( /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.(com|in|org|net)$/i.test(emailVal)) {
                 emailErr.innerText = "";
             } else {
                 // If it doesn't match the full pattern but has all components, check for other issues
@@ -1659,7 +1659,7 @@ footer .col-md-4 {
             }
 
             // Always validate email and password for both login and register
-            if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.(com|in|org|net)$/.test(emailVal)) {
+            if (! /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.(com|in|org|net)$/i.test(emailVal)) {
                 emailErr.innerText = "Please enter a valid email (e.g., example@gmail.com)";
                 valid = false;
             }
@@ -1696,5 +1696,6 @@ togglePassword.addEventListener("click", () => {
 </script>
 
 </body>
+
 
 </html>
