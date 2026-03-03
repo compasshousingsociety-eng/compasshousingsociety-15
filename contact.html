@@ -1750,7 +1750,7 @@ document.getElementById('phoneError').textContent='';
             }
 
             // EMAIL VALIDATION
-            if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.(com|in|org|net)$/.test(email)) {
+            if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.(com|in|org|net)$/i.test(email)) {
                 emailError.textContent = "Only @gmail.com email allowed";
                 valid = false;
             }
@@ -1791,5 +1791,6 @@ document.getElementById('phoneError').textContent='';
 
 
 </body>
+
 
 </html>
